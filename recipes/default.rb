@@ -19,3 +19,15 @@ service 'name-service-cache' do
   supports :enable => true, :disable => true, :restart => true
 end
 
+cookbook_file '/root/.profile' do
+  source 'dot_profile'
+end
+
+cookbook_file '/root/.bashrc' do
+  source 'dot_bashrc'
+end
+
+cookbook_file '/root/.bash_profile' do
+  source 'dot_bash_profile'
+end
+
