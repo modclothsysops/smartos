@@ -5,7 +5,7 @@ PATH="/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin"
 export TERM=xterm-color
 
 # Check to see if ssh-agent is already running
-agent_pid="$(ps -ef | grep "ssh-agent" | grep -v "grep" | awk '{print($2)}')"
+agent_pid="$(ps -ef | grep $USER | grep "ssh-agent" | grep -v "grep" | awk '{print($2)}')"
 
 # If the agent is not running (pid is zero length string)
 if [[ -z "$agent_pid" ]]; then
@@ -19,7 +19,7 @@ else
 
     # and the actual auth socket file name is simply numerically one less than
     # the actual process id, regardless of what `ps -ef` reports as the ppid
-    agent_sock="$(find /tmp -path "*ssh*" -type s -iname "agent.$agent_ppid")"
+    agent_sock="$(find /tmp -name "agent.$agent_ppid")"
 
     echo "ssh-agent pid $agent_pid"
     export SSH_AGENT_PID="$agent_pid"
@@ -39,7 +39,6 @@ HISTFILESIZE=2000000000
 
 # # Display things in color
 alias ls='ls --color=auto'
-alias grep='grep --color=auto'
 
 # Color terminal settings
 export LS_OPTIONS='--color=auto'
