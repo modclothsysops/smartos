@@ -1,5 +1,5 @@
 maintainer       "ModCloth, Inc."
-maintainer_email "platformsphere@modcloth.com"
+maintainer_email "platformsphere+modclothsysops-smartos-cookbook@modcloth.com"
 license          "All Rights Reserved"
 description      "SmartOS Base"
 version          "0.1.0"
